@@ -1,8 +1,16 @@
+import Header from "../components/Header";
+import BoardNav from "../components/BoardNav";
+import KudosContainer from "../components/KudosContainer";
+import Footer from "../components/Footer";
+
 function BoardPage() {
   return (
-    <>
-      <h1>Board</h1>
-    </>
+    <main>
+      <Header></Header>
+      <BoardNav></BoardNav>
+      <KudosContainer />
+      <Footer></Footer>
+    </main>
   );
 }
 

@@ -15,7 +15,7 @@ export default function HomeNav() {
           <option value="">a</option>
           <option value="">a</option>
         </select>
-        <button>+</button>
+        <button className="add-button">+</button>
       </div>
     </nav>
   );

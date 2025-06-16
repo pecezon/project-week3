@@ -36,7 +36,7 @@ button {
   width: 150px;
 }
 
-.right-nav button {
+.add-button {
   border-radius: 50%;
   border: 1px solid #2a2a2a;
   width: 40px;
@@ -44,14 +44,16 @@ button {
 }
 
 /* Board Card & Board Container */
-.boards-container {
+.boards-container,
+.kudos-container {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
 }
 
-.board-card {
+.board-card,
+.kudo-card {
   display: flex;
   align-content: center;
   flex-direction: column;
@@ -62,7 +64,8 @@ button {
   border-radius: 30px;
 }
 
-.board-card img {
+.board-card img,
+.kudo-card img {
   border-radius: 30px;
   width: 100%;
   height: 280px;
@@ -77,15 +80,44 @@ button {
   align-items: center;
 }
 
-.board-card .info-container {
+.board-card .info-container,
+.kudo-card .kudo-info,
+.kudo-card .kudo-owner {
   flex-direction: column;
   justify-content: center;
 }
 
-.board-card .button-container {
+.board-card .button-container,
+.kudo-card .kudo-buttons {
   justify-content: space-around;
 }
 
-.board-card .button-container button {
+.board-card .button-container button,
+.kudo-card .kudo-buttons button {
   padding: 0.5rem;
+}
+
+/* Board Page Styling */
+.board-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kudo-card .kudo-buttons,
+.kudo-card .kudo-owner,
+.kudo-card .kudo-info {
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.kudo-card .kudo-info {
+  height: 80px;
+}
+
+.kudo-card .kudo-buttons {
+  height: 50px;
 }
