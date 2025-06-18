@@ -1,6 +1,8 @@
 import React from "react";
 
-export default function BoardCard({ title, category }) {
+export default function BoardCard({ key, title, category }) {
+  console.log("Card key: " + key);
+
   return (
     <div className="board-card">
       <img src="src/assets/barquita.png" alt="" />

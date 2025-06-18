@@ -17,7 +17,7 @@ export default function HomeNav({ setCreateModalClass }) {
         </select>
         <button
           className="add-button"
-          onClick={(e) => setCreateModalClass("open")}
+          onClick={() => setCreateModalClass("open")}
         >
           +
         </button>

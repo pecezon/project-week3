@@ -24,4 +24,20 @@ router.post("/create-new-board", async (req, res) => {
   res.status(201).json(board);
 });
 
+router.delete("/delete-board/:boardId", async (req, res) => {
+  const boardId = parseInt(req.params.boardId);
+
+  try {
+    await prisma.kudoBoard.delete({
+      where: {
+        id: boardId,
+      },
+    });
+
+    res.status(204).send();
+  } catch (error) {
+    res.status(404).send();
+  }
+});
+
 module.exports = router;
