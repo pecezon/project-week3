@@ -1,10 +1,13 @@
+//Express setup
 const express = require("express");
 const app = express();
 const PORT = 5432;
 
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+//Cors Setup
+const cors = require("cors");
 
+//Use json and cors
+app.use(cors());
 app.use(express.json());
 
 //Import routes
@@ -14,6 +17,7 @@ const kudosRoute = require("./routes/kudos");
 app.use("/boards", boardsRoute);
 app.use("/kudos", kudosRoute);
 
+//Run app at port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
