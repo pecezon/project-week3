@@ -78,6 +78,7 @@ button {
   height: 60px;
   display: flex;
   align-items: center;
+  text-align: center;
 }
 
 .board-card .info-container,

@@ -1,17 +1,16 @@
 import React from "react";
 import BoardCard from "./BoardCard";
 
-export default function BoardsContainer() {
+export default function BoardsContainer({ boardList }) {
   return (
     <section className="boards-container">
-      <BoardCard />
-      <BoardCard />
-      <BoardCard />
-      <BoardCard />
-      <BoardCard />
-      <BoardCard />
-      <BoardCard />
-      <BoardCard />
+      {boardList.map((board) => (
+        <BoardCard
+          key={board.id}
+          title={board.title}
+          category={board.category}
+        />
+      ))}
     </section>
   );
 }

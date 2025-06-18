@@ -8,23 +8,25 @@ import { useState, useEffect } from "react";
 function HomePage() {
   const [createModalClass, setCreateModalClass] = useState("closed");
   const [boardList, setBoardList] = useState([]);
-  const baseAPIURL = import.meta.env.VITE_API_URL || "http://locahost:5432";
+  const baseAPIURL = import.meta.env.VITE_API_URL || "http://locahost:5001";
+
+  const fetchBoardList = async () => {
+    try {
+      const response = await fetch(baseAPIURL + "/boards/get-all-boards", {
+        method: "GET",
+      });
+      if (!response.ok) {
+        throw new Error(`Error fetching the board list: ${response.status}`);
+      }
+      const parsedResponse = await response.json();
+      console.log(parsedResponse);
+      setBoardList(parsedResponse);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    const fetchBoardList = async () => {
-      try {
-        const response = await fetch(baseAPIURL + "/boards/get-all-boards");
-        if (!response.ok) {
-          throw new Error(`Error fetching the board list: ${response.status}`);
-        }
-        const parsedResponse = await response.json();
-        console.log(parsedResponse);
-        setBoardList(parsedResponse);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     fetchBoardList();
   }, []);
 
@@ -32,11 +34,13 @@ function HomePage() {
     <main>
       <Header />
       <HomeNav setCreateModalClass={setCreateModalClass} />
-      <BoardsContainer />
+      <BoardsContainer boardList={boardList} />
       <Footer />
       <NewBoardForm
         createModalClass={createModalClass}
         setCreateModalClass={setCreateModalClass}
+        baseAPIURL={baseAPIURL}
+        fetchBoardList={fetchBoardList}
       />
     </main>
   );

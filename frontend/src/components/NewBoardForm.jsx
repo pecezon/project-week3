@@ -3,10 +3,40 @@ import React, { useState } from "react";
 export default function NewBoardForm({
   createModalClass,
   setCreateModalClass,
+  baseAPIURL,
+  fetchBoardList,
 }) {
   const [boardName, setBoardName] = useState("");
   const [boardCategory, setBoardCategory] = useState("celebration");
   const [boardAuthor, setBoardAuthor] = useState("");
+
+  const createNewBoard = async () => {
+    try {
+      const newBoard = {
+        title: boardName,
+        category: boardCategory,
+        author: boardAuthor,
+      };
+
+      const response = await fetch(baseAPIURL + "/boards/create-new-board", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newBoard),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error creating the board: ${response.status}`);
+      }
+
+      const parsedResponse = await response.json();
+      console.log(parsedResponse);
+    } catch (error) {
+      window.alert("Something went wrong creating the board");
+      console.error(error);
+    }
+  };
 
   return (
     <section className={"modal " + createModalClass}>
@@ -14,15 +44,16 @@ export default function NewBoardForm({
         <div className="close-container">
           <i
             className="fa-solid fa-xmark"
-            onClick={(e) => setCreateModalClass("closed")}
+            onClick={() => setCreateModalClass("closed")}
           ></i>
         </div>
         <h2>Create New Board</h2>
         <form
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
+            await createNewBoard();
+            await fetchBoardList();
             setCreateModalClass("closed");
-            //TODO submit logic
           }}
         >
           <label>

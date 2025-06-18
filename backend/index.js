@@ -1,7 +1,7 @@
 //Express setup
 const express = require("express");
 const app = express();
-const PORT = 5432;
+const PORT = 5001;
 
 //Cors Setup
 const cors = require("cors");
