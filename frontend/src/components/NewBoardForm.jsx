@@ -12,12 +12,16 @@ export default function NewBoardForm({
     <section className={"modal " + createModalClass}>
       <div className="modal-content">
         <div className="close-container">
-          <i className="fa-solid fa-xmark"></i>
+          <i
+            className="fa-solid fa-xmark"
+            onClick={(e) => setCreateModalClass("closed")}
+          ></i>
         </div>
         <h2>Create New Board</h2>
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            setCreateModalClass("closed");
             //TODO submit logic
           }}
         >

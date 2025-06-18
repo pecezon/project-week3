@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function HomeNav() {
+export default function HomeNav({ setCreateModalClass }) {
   return (
     <nav className="home-nav">
       <form action="">
@@ -15,7 +15,12 @@ export default function HomeNav() {
           <option value="">a</option>
           <option value="">a</option>
         </select>
-        <button className="add-button">+</button>
+        <button
+          className="add-button"
+          onClick={(e) => setCreateModalClass("open")}
+        >
+          +
+        </button>
       </div>
     </nav>
   );

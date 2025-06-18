@@ -11,7 +11,7 @@ function HomePage() {
   return (
     <main>
       <Header />
-      <HomeNav />
+      <HomeNav setCreateModalClass={setCreateModalClass} />
       <BoardsContainer />
       <Footer />
       <NewBoardForm
