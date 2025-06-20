@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function BoardCard({
   id,
@@ -31,7 +32,9 @@ export default function BoardCard({
         <p>{category}</p>
       </div>
       <div className="button-container">
-        <button>View Board</button>
+        <button>
+          <Link to={`/board-page/${id}`}>View Board</Link>
+        </button>
         <button
           onClick={() => {
             deleteBoard(id);
