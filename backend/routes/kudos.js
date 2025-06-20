@@ -25,6 +25,7 @@ router.post("/create-new-kudo", async (req, res) => {
     title,
     description,
     gifUrl,
+    createdAt: new Date(),
     upvotes: parseInt(upvotes),
     owner: owner || "",
     boardId: parseInt(boardId),

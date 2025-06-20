@@ -19,6 +19,7 @@ model KudoBoard {
   title     String
   category  String
   author    String?
+  createdAt DateTime?
   kudoCards KudoCard[]
 }
 
@@ -29,7 +30,8 @@ model KudoCard {
   description String
   gifUrl      String
   upvotes     Int
+  createdAt   DateTime?
   owner       String?
-  board       KudoBoard @relation(fields: [boardId], references: [id])
+  board       KudoBoard @relation(fields: [boardId], references: [id], onDelete: Cascade)
   boardId     Int
 }

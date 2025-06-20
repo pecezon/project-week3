@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function HomeNav({ setCreateModalClass }) {
+export default function HomeNav({
+  setCreateModalClass,
+  fetchBoardList,
+  setFilterType,
+}) {
   return (
     <nav className="home-nav">
       <form action="">
@@ -9,11 +13,18 @@ export default function HomeNav({ setCreateModalClass }) {
         <button className="clear-button">Clear</button>
       </form>
       <div className="right-nav">
-        <select name="" id="">
-          <option value="">a</option>
-          <option value="">a</option>
-          <option value="">a</option>
-          <option value="">a</option>
+        <select
+          name="filter"
+          onChange={(e) => {
+            setFilterType(e.target.value);
+            fetchBoardList(e.target.value);
+          }}
+        >
+          <option value="all">All</option>
+          <option value="recent">Recent</option>
+          <option value="celebration">Celebration</option>
+          <option value="thank-you">Thank You</option>
+          <option value="inspiration">Inspiration</option>
         </select>
         <button
           className="add-button"

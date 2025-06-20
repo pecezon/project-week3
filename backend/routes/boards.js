@@ -14,6 +14,7 @@ router.post("/create-new-board", async (req, res) => {
   const newBoard = {
     title,
     category,
+    createdAt: new Date(),
     author: author || "",
   };
 

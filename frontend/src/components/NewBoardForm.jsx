@@ -5,6 +5,7 @@ export default function NewBoardForm({
   setCreateModalClass,
   baseAPIURL,
   fetchBoardList,
+  filterType,
 }) {
   const [boardName, setBoardName] = useState("");
   const [boardCategory, setBoardCategory] = useState("celebration");
@@ -52,7 +53,7 @@ export default function NewBoardForm({
           onSubmit={async (e) => {
             e.preventDefault();
             await createNewBoard();
-            await fetchBoardList();
+            await fetchBoardList(filterType);
             setCreateModalClass("closed");
           }}
         >

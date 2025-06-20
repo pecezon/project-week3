@@ -1,7 +1,27 @@
 import React from "react";
 
-export default function BoardCard({ key, title, category }) {
-  console.log("Card key: " + key);
+export default function BoardCard({
+  id,
+  title,
+  category,
+  fetchBoardList,
+  filterType,
+}) {
+  const baseAPIURL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+
+  const deleteBoard = async (id) => {
+    try {
+      const response = await fetch(`${baseAPIURL}/boards/delete-board/${id}`, {
+        method: "DELETE",
+      });
+      if (!response.ok) {
+        throw new Error(`Error deleting the board: ${response.status}`);
+      }
+      await fetchBoardList(filterType);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="board-card">
@@ -12,7 +32,13 @@ export default function BoardCard({ key, title, category }) {
       </div>
       <div className="button-container">
         <button>View Board</button>
-        <button>Delete Board</button>
+        <button
+          onClick={() => {
+            deleteBoard(id);
+          }}
+        >
+          Delete Board
+        </button>
       </div>
     </div>
   );
