@@ -65,7 +65,7 @@ function BoardPage() {
         boardName={curBoard.title}
         setCreateKudoModalClass={setCreateKudoModalClass}
       ></BoardNav>
-      <KudosContainer kudoList={kudoList} />
+      <KudosContainer kudoList={kudoList} fetchKudos={fetchKudos} />
       <Footer></Footer>
       <NewKudoForm
         boardId={id}
