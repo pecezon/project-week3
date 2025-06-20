@@ -1,3 +1,17 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header button {
+  padding: 0.5rem 0.75rem;
+}
+
+header button:hover {
+  background-color: #2a2a2a;
+}
+
 header img {
   width: 70px;
   height: 70px;
@@ -25,11 +39,42 @@ header img {
   border-radius: 30px;
 }
 
+.submit-button:hover,
+.add-button:hover,
+.upvote-button:hover {
+  background-color: rgb(0, 133, 60);
+}
+
+.clear-button:hover,
+.delete-button:hover {
+  background-color: rgb(133, 0, 0);
+}
+
+.submit-button,
+.add-button,
+.upvote-button {
+  background-color: rgba(36, 131, 79, 0.5);
+}
+
+.clear-button,
+.delete-button {
+  background-color: rgb(133, 0, 0, 0.5);
+}
+
+.view-button:hover {
+  background-color: rgb(0, 73, 133);
+}
+
+.view-button {
+  background-color: rgb(0, 73, 133, 0.5);
+}
+
 .submit-button,
 button {
   padding: 0 0.75rem;
   border-radius: 30px;
   border: 1px solid #2a2a2a;
+  cursor: pointer;
 }
 
 .right-nav select {
@@ -55,10 +100,10 @@ button {
 .board-card,
 .kudo-card {
   display: flex;
-  align-content: center;
+  align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid green;
+  border: 1px solid #2a2a2a;
   width: 250px;
   height: 400px;
   border-radius: 30px;
@@ -69,11 +114,12 @@ button {
   border-radius: 30px;
   width: 100%;
   height: 280px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .board-card .info-container,
 .board-card .button-container {
+  gap: 1rem;
   border-radius: 30px;
   height: 60px;
   display: flex;
@@ -96,6 +142,16 @@ button {
 .board-card .button-container button,
 .kudo-card .kudo-buttons button {
   padding: 0.5rem;
+}
+
+.kudo-buttons {
+  width: 95%;
+  border-radius: 30px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
 }
 
 /* Board Page Styling */
@@ -152,7 +208,6 @@ Modal
   text-align: center;
   padding: 1rem;
   gap: 1rem;
-  background-color: white;
 }
 
 .modal-content form {

@@ -34,4 +34,15 @@ model KudoCard {
   owner       String?
   board       KudoBoard @relation(fields: [boardId], references: [id], onDelete: Cascade)
   boardId     Int
+  comments    Comment[]
+}
+
+//Coment Model
+model Comment {
+  id        Int      @id @default(autoincrement())
+  message   String
+  createdAt DateTime
+  author    String
+  kudo      KudoCard @relation(fields: [kudoId], references: [id], onDelete: Cascade)
+  kudoId    Int
 }

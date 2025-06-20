@@ -32,13 +32,15 @@ export default function BoardCard({
         <p>{category}</p>
       </div>
       <div className="button-container">
-        <button>
-          <Link to={`/board-page/${id}`}>View Board</Link>
-        </button>
+        <Link className="link" to={`/board-page/${id}`}>
+          <button className="view-button">View Board</button>
+        </Link>
+
         <button
           onClick={() => {
             deleteBoard(id);
           }}
+          className="delete-button"
         >
           Delete Board
         </button>

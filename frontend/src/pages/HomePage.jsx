@@ -13,7 +13,6 @@ function HomePage() {
   const baseAPIURL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 
   const sort = (arr, filterType, searchWord) => {
-    console.log(searchWord);
     if (filterType === "search") {
       return arr.filter((b) =>
         b.title.toLowerCase().includes(searchWord.toLowerCase())
