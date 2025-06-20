@@ -1,10 +1,17 @@
 import React from "react";
 
-export default function BoardNav() {
+export default function BoardNav({ boardName, setCreateKudoModalClass }) {
   return (
     <nav className="board-nav">
-      <h1>Board Name</h1>
-      <button className="add-button">+</button>
+      <h1>{boardName}</h1>
+      <button
+        className="add-button"
+        onClick={() => {
+          setCreateKudoModalClass("open");
+        }}
+      >
+        +
+      </button>
     </nav>
   );
 }
