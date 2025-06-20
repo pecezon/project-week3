@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function HomeNav({
   setCreateModalClass,
   fetchBoardList,
   setFilterType,
+  searchWord,
+  setSearchWord,
 }) {
   return (
     <nav className="home-nav">
-      <form action="">
-        <input type="text" className="search-bar" />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          setFilterType("search");
+          fetchBoardList("search", searchWord);
+        }}
+      >
+        <input
+          type="text"
+          className="search-bar"
+          value={searchWord}
+          onChange={(e) => {
+            setSearchWord(e.target.value);
+          }}
+        />
         <input type="submit" value="Submit" className="submit-button" />
-        <button className="clear-button">Clear</button>
+        <button
+          className="clear-button"
+          onClick={() => {
+            setSearchWord("");
+          }}
+        >
+          Clear
+        </button>
       </form>
       <div className="right-nav">
         <select
