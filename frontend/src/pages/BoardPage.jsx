@@ -46,7 +46,11 @@ function BoardPage() {
         throw new Error(`Error fetching the board list: ${response.status}`);
       }
       const parsedResponse = await response.json();
-      setKudoList(parsedResponse);
+      setKudoList(
+        parsedResponse.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        )
+      );
       console.log(parsedResponse);
     } catch (error) {
       console.error(error);

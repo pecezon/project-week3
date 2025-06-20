@@ -38,6 +38,23 @@ router.post("/create-new-kudo", async (req, res) => {
   res.status(201).json(kudo);
 });
 
+router.put("/upvote-kudo/:kudoId", async (req, res) => {
+  const kudoId = parseInt(req.params.kudoId);
+
+  const kudo = await prisma.kudoCard.update({
+    where: {
+      id: kudoId,
+    },
+    data: {
+      upvotes: {
+        increment: 1,
+      },
+    },
+  });
+
+  res.status(201).json(kudo);
+});
+
 router.delete("/delete-kudo/:kudoId", async (req, res) => {
   const kudoId = parseInt(req.params.kudoId);
 
