@@ -28,7 +28,7 @@ export default function Header() {
       <Link to="/">
         <img src={logo} alt="Logo"></img>
       </Link>
-      <button onClick={toggleTheme}>
+      <button className="toggle-mode-button" onClick={toggleTheme}>
         Toggle to {theme === "light" ? "Dark" : "Light"} Mode
       </button>
     </header>

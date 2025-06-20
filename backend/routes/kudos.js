@@ -25,6 +25,7 @@ router.post("/create-new-kudo", async (req, res) => {
     title,
     description,
     gifUrl,
+    pinned: false,
     createdAt: new Date(),
     upvotes: parseInt(upvotes) || 0,
     owner: owner || "",
@@ -49,6 +50,22 @@ router.put("/upvote-kudo/:kudoId", async (req, res) => {
       upvotes: {
         increment: 1,
       },
+    },
+  });
+
+  res.status(201).json(kudo);
+});
+
+router.put("/pin-kudo/:kudoId", async (req, res) => {
+  const kudoId = parseInt(req.params.kudoId);
+  const { pinned } = req.body;
+
+  const kudo = await prisma.kudoCard.update({
+    where: {
+      id: kudoId,
+    },
+    data: {
+      pinned: Boolean(pinned),
     },
   });
 
