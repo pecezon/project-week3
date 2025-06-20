@@ -51,7 +51,6 @@ function BoardPage() {
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         )
       );
-      console.log(parsedResponse);
     } catch (error) {
       console.error(error);
     }

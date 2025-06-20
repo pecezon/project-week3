@@ -31,7 +31,6 @@ export default function NewKudoForm({
         throw new Error(`Error fetching the gifs: ${response.status}`);
       }
       const parsedResponse = await response.json();
-      console.log(parsedResponse.data);
       setGifList(parsedResponse.data);
     } catch (error) {
       console.error(error);
@@ -61,7 +60,6 @@ export default function NewKudoForm({
       }
 
       const parsedResponse = await response.json();
-      console.log(parsedResponse);
     } catch (error) {
       window.alert("Something went wrong creating the kudo");
       console.error(error);
@@ -120,7 +118,6 @@ export default function NewKudoForm({
           </label>
           <div className="searches-gifs-container">
             {gifList.map((gif, index) => {
-              console.log(gifList);
               return (
                 <img
                   src={gif.images.original.url}
