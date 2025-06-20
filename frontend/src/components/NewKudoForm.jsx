@@ -18,9 +18,13 @@ export default function NewKudoForm({
 
   const searchGif = async () => {
     try {
-      const url = `https://api.giphy.com/v1/channels/search?api_key=${
+      console.log(gifSearch);
+
+      const url = `
+      https://api.giphy.com/v1/gifs/search?api_key=${
         import.meta.env.VITE_GIPHY_API_KEY
-      }&q=${gifSearch}&limit=6&offset=0`;
+      }&q=${gifSearch}&limit=6&offset=0&rating=g&lang=en&bundle=messaging_non_clips
+      `;
 
       console.log(url);
 
@@ -123,11 +127,11 @@ export default function NewKudoForm({
               console.log(gifList);
               return (
                 <img
-                  src={gif.featured_gif.images.original}
+                  src={gif.images.original.url}
                   alt=""
                   key={index}
                   onClick={() => {
-                    setKudoGifUrl(gif.featured_gif.images.original);
+                    setKudoGifUrl(gif.images.original.url);
                   }}
                 />
               );
