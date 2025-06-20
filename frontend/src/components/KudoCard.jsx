@@ -43,17 +43,19 @@ export default function KudoCard({ kudo, fetchKudos }) {
         <h3>{kudo.title}</h3>
         <p>{kudo.description}</p>
       </div>
-      <img src={kudo.gifUrl} alt="" />
+      <img className="kudo-gif" src={kudo.gifUrl} alt="" />
       <p className="kudo-owner">{kudo.owner}</p>
       <div className="kudo-buttons">
         <button
           onClick={() => {
             upvoteKudo();
           }}
+          className="upvote-button"
         >
           Upvote: {kudo.upvotes}
         </button>
         <button
+          className="delete-button"
           onClick={() => {
             deleteKudo();
           }}

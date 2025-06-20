@@ -32,7 +32,6 @@ export default function NewBoardForm({
       }
 
       const parsedResponse = await response.json();
-      console.log(parsedResponse);
     } catch (error) {
       window.alert("Something went wrong creating the board");
       console.error(error);
