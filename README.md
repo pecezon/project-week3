@@ -132,7 +132,14 @@ Deployed Application (**required**): [Kudos Board Deployed Site](https://project
 
 ### Walkthrough Video
 
-<div style="position: relative; padding-bottom: 49.90757855822551%; height: 0;"><iframe src="https://www.loom.com/embed/f7a9882d32fe48aea0d2be2d926b1458?sid=c9333ef4-1119-4547-97e4-744b2120b3dd" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div>
+    <a href="https://www.loom.com/share/f7a9882d32fe48aea0d2be2d926b1458">
+      <p>week3-project - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/f7a9882d32fe48aea0d2be2d926b1458">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/f7a9882d32fe48aea0d2be2d926b1458-02ffb1b8e4802404-full-play.gif">
+    </a>
+  </div>
 
 ### Reflection
 
