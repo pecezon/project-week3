@@ -185,3 +185,8 @@ Modal
 .open {
   display: block;
 }
+
+.searches-gifs-container img {
+  width: 100px;
+  height: 100px;
+}

@@ -26,7 +26,7 @@ router.post("/create-new-kudo", async (req, res) => {
     description,
     gifUrl,
     createdAt: new Date(),
-    upvotes: parseInt(upvotes),
+    upvotes: parseInt(upvotes) || 0,
     owner: owner || "",
     boardId: parseInt(boardId),
   };
@@ -36,6 +36,39 @@ router.post("/create-new-kudo", async (req, res) => {
   });
 
   res.status(201).json(kudo);
+});
+
+router.put("/upvote-kudo/:kudoId", async (req, res) => {
+  const kudoId = parseInt(req.params.kudoId);
+
+  const kudo = await prisma.kudoCard.update({
+    where: {
+      id: kudoId,
+    },
+    data: {
+      upvotes: {
+        increment: 1,
+      },
+    },
+  });
+
+  res.status(201).json(kudo);
+});
+
+router.delete("/delete-kudo/:kudoId", async (req, res) => {
+  const kudoId = parseInt(req.params.kudoId);
+
+  try {
+    await prisma.kudoCard.delete({
+      where: {
+        id: kudoId,
+      },
+    });
+
+    res.status(204).send();
+  } catch (error) {
+    res.status(404).send();
+  }
 });
 
 module.exports = router;
