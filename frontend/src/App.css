@@ -41,8 +41,18 @@ button {
   cursor: pointer;
 }
 
+input[type="text"] {
+  padding: 0.5rem 1rem;
+  border: 1px solid #2a2a2a;
+  border-radius: 30px;
+}
+
 .boards-container,
 .kudos-container {
   min-height: 80vh;
-  border: 1px solid #2a2a2a;
+  border-top: 1px solid #2a2a2a;
+}
+
+footer {
+  border-top: 1px solid #2a2a2a;
 }

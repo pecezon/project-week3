@@ -3,6 +3,7 @@ import BoardNav from "../components/BoardNav";
 import KudosContainer from "../components/KudosContainer";
 import Footer from "../components/Footer";
 import NewKudoForm from "../components/NewKudoForm";
+import CommentModal from "../components/CommentModal";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -47,9 +48,17 @@ function BoardPage() {
       }
       const parsedResponse = await response.json();
       setKudoList(
-        parsedResponse.sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        )
+        parsedResponse
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+          .sort((a, b) => {
+            if (a.pinned && !b.pinned) {
+              return -1; // a (true) comes before b (false)
+            } else if (!a.isActive && b.isActive) {
+              return 1; // b (true) comes before a (false)
+            } else {
+              return 0; // Maintain relative order if both are true or both are false
+            }
+          })
       );
     } catch (error) {
       console.error(error);

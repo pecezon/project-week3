@@ -32,6 +32,7 @@ model KudoCard {
   upvotes     Int
   createdAt   DateTime?
   owner       String?
+  pinned      Boolean   @default(false)
   board       KudoBoard @relation(fields: [boardId], references: [id], onDelete: Cascade)
   boardId     Int
   comments    Comment[]
